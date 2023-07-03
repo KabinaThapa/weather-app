@@ -5,13 +5,14 @@ import Reducer from './Reducer'
 const WeatherContext = React.createContext()
 //provider
 const Context = ({children}) => {
+  //useReducer
     const[state, dispatch]=useReducer(Reducer,{
         city:''
     })
 
   return (
     
-    <WeatherContext.Provider value={state}>
+    <WeatherContext.Provider value={{state, dispatch}}>
         {children}
     </WeatherContext.Provider>
     
@@ -20,6 +21,7 @@ const Context = ({children}) => {
 export default Context
 
 //children component consuming the context
+//useContext to make state & dispatch in weathercontext available globally.
 export const useWeatherContext=()=>{
     return useContext(WeatherContext)
 }
