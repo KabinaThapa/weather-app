@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 import "./App.css";
+import City from "./Components/City";
 
 function App() {
   //useState to update data
@@ -61,7 +62,7 @@ function App() {
       <p>{data.weather?.[0].id}</p>
       </div>
       
-
+<City/>
     </>
   );
 }
