@@ -21,14 +21,16 @@ const SearchBar = () => {
         setInput(city.name)
         setFilterdata([])
     }
-    
+    const handleSubmit=()=>{
+        fetchData()
+    }
 
 
   return (
     <>
     
         <input type="text" placeholder='city' onChange={handleChange} value={input}></input>
-        <button onClick={()=>type}>search</button>
+        <button onClick={()=>{handleSubmit}}>search</button>
         {input && filterdata.length>0 &&
             
         filterdata.map((city)=>(
