@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import { City, Country } from 'country-state-city'
+//import { City, Country } from 'country-state-city'
 import { useWeatherContext } from '../Context/Context'
 import axios from 'axios'
+import cities from 'cities.json';
 const SearchBar = () => {
     
    const {state:{city}, dispatch}=useWeatherContext()
@@ -11,10 +12,10 @@ const SearchBar = () => {
 
     const handleChange=(event)=>{
         setInput(event.target.value)
-        const US=Country.getCountryByCode('US')
-        const UScities=City.getCitiesOfCountry(US.isoCode)
-        console.log(UScities)
-        const filterdata=UScities.filter((city)=>city.name.toLowerCase().startsWith(input.toLowerCase()))
+        //const filterdata=UScities.filter((city)=>city.name.toLowerCase().startsWith(input.toLowerCase()))
+        const filterdata = cities.filter((city) =>
+      city.name.toLowerCase().startsWith(input.toLowerCase())
+    )
         setFilterdata(filterdata)
     }
     const handleSelectedCity=(city)=>{
@@ -45,14 +46,15 @@ const SearchBar = () => {
   return (
     <>
     
-        <input type="text" placeholder='city' onChange={handleChange} value={input}></input>
-        <button onClick={()=>{handleSubmit}}>search</button>
+        <input type="text" placeholder='city name' onChange={handleChange} value={input}></input>
+       
         {input && filterdata.length>0 &&
             
         filterdata.map((city)=>(
-            <div key={city.id}  className='w-44 bg-black '>
-            
-            <li onClick={()=>handleSelectedCity(city)}> {city.name}</li>
+            <div key={`${city.lat}-${city.lng}-${city.name}`}  className='w-44 bg-black '>
+            <ul className='list-none'>
+            <li className='' onClick={()=>handleSelectedCity(city)}> {city.name}</li>
+            </ul>
             </div> ))
         }
 
