@@ -6,6 +6,16 @@ const Reducer = (state, action) => {
     return{
         ...state, city:action.payload
     }
+    
+        case 'Select_Daily':
+    return{
+        ...state, daily:action.payload
+    }
+    case 'Select_Current':
+    return{
+        ...state, current:action.payload
+    }
+   
     default:
         return{...state}
   }

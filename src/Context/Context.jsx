@@ -7,7 +7,9 @@ const WeatherContext = React.createContext()
 const Context = ({children}) => {
   //useReducer
     const[state, dispatch]=useReducer(Reducer,{
-        city:''
+        city:'',
+        daily:'',
+        current:'',
     })
 
   return (
