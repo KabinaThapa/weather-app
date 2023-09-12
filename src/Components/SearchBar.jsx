@@ -38,25 +38,28 @@ const SearchBar = () => {
     const lon=city&&city[0].longitude?city[0].longitude:''
    
    console.log(lat)
-    //url to fetch data
-   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}`
- 
+    //url to fetch current and daily weather forecast data
     
-       axios.get(url)
-      .then((response)=>{
-      console.log(response.data)
-      response.data
-      dispatch({type:'Select_Daily', payload: response.data})
+   const daily_url = `https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&cnt=16&appid=${API_key}`
+ const current_url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
+    Promise.all([
+      axios.get(daily_url),
+      axios.get(current_url)
+    ])
+    
+       
+      .then(([dailyresponse, currentresponse])=>{
+        console.log('daily-response', dailyresponse.data)
+        console.log('current-response', currentresponse.data)
+      
+      dispatch({type:'Select_Daily', payload: dailyresponse.data})
+      dispatch({type:'Select_Current', payload: currentresponse.data})
     })
     .catch((error)=>{console.log('error', error)})
     
     
   }
-  useEffect(() => {
-    
-      fetchData(city);
-    
-  }, [city]);
+  
   
   
 
