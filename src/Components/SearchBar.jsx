@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     const handleChange=(event)=>{
         setInput(event.target.value)
-        //const filterdata=UScities.filter((city)=>city.name.toLowerCase().startsWith(input.toLowerCase()))
+ 
         const filterdata = cities.filter((city) =>
       city.name.toLowerCase().startsWith(input.toLowerCase())
     )
@@ -23,11 +23,15 @@ const SearchBar = () => {
         setFilterdata([])
         dispatch({type:'Select_City', payload:city.name})
     }
+    
+    const API_key = "435c048a9c6bca0718dee1b66c720006"
+    const lat=city&&city.lat?city.lat:''
+    const lon=city&&city.lon?city.lon:''
    
-    //api call
-    const API_Key = "435c048a9c6bca0718dee1b66c720006";
+   
     //url to fetch data
-   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_Key}`;
+   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}`
+ 
    const fetchData =() => {
     
        axios.get(url)
@@ -36,6 +40,8 @@ const SearchBar = () => {
       response.data
       dispatch({type:'Select_Daily', payload: response.data})
     })
+    .catch((error)=>{console.log('error', error)})
+    
     
   }
   useEffect(()=>{
@@ -51,7 +57,7 @@ const SearchBar = () => {
         {input && filterdata.length>0 &&
             
         filterdata.map((city)=>(
-            <div key={`${city.lat}-${city.lng}-${city.name}`}  className='w-44 bg-black '>
+            <div key={city.id}  className='w-44 bg-black '>
             <ul className='list-none'>
             <li className='' onClick={()=>handleSelectedCity(city)}> {city.name}</li>
             </ul>
