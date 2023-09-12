@@ -10,7 +10,7 @@ const SearchBar = () => {
    const[input, setInput]=useState('')
    console.log('useWeatherContext', useWeatherContext())
     
-    const[filterdata,setFilterdata]=useState([])
+   
 
     const handleChange=(event)=>{
     const inputvalue=event.target.value
@@ -18,24 +18,24 @@ const SearchBar = () => {
      console.log(inputvalue)
      const filtercity=cities.filter((city)=>city.city.toLowerCase()===inputvalue.toLowerCase())
      console.log(filtercity)
-      
+    dispatch({type:'Select_City' , payload:filtercity})
       
     }
     
-    
+ 
        
     
     const handleSubmit=()=>{
         
         
-        fetchData(filtercity)
+        fetchData(city)
     }
     
-   
-   const fetchData =(input) => {
+    
+   const fetchData =(city)=>{
     const API_key = "435c048a9c6bca0718dee1b66c720006"
-    const lat=input&&input.lat?input.lat:''
-    const lon=input&&input.lon?input.lon:''
+    const lat=city&&city[0].latitude?city[0].latitude:''
+    const lon=city&&city[0].longitude?city[0].longitude:''
    
    console.log(lat)
     //url to fetch data
@@ -52,10 +52,13 @@ const SearchBar = () => {
     
     
   }
-  useEffect(()=>{
+  useEffect(() => {
     
+      fetchData(city);
     
-  },[input])
+  }, [city]);
+  
+  
 
 
   return (
