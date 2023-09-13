@@ -6,6 +6,7 @@ import cities from 'cities.json'
 import "./App.css";
 
 import SearchBar from "./Components/SearchBar";
+import CurrentWeather from "./Components/CurrentWeather.jsx/CurrentWeather";
 
 function App() {
 
@@ -14,6 +15,9 @@ function App() {
       
 
 <SearchBar/>
+<div>
+  <CurrentWeather/>
+</div>
 
     </>
   );
