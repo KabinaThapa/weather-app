@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
-import cities from 'cities.json'
+import DailyWeather from "./Components/dailyWeather/dailyWeather";
 
 import "./App.css";
 
@@ -15,8 +15,9 @@ function App() {
       
 
 <SearchBar/>
-<div>
+<div className="flex mt-8"> 
   <CurrentWeather/>
+  <DailyWeather/>
 </div>
 
     </>

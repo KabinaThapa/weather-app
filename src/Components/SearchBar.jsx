@@ -40,7 +40,7 @@ const SearchBar = () => {
    console.log(lat)
     //url to fetch current and daily weather forecast data
     
-   const daily_url = `https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&cnt=16&appid=${API_key}`
+   const daily_url = `https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${API_key}`
  const current_url=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
     Promise.all([
       axios.get(daily_url),
