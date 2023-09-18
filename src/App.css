@@ -1,21 +1,69 @@
-*{
-    margin:0;
-    padding: 0;
-    overflow-x: hidden;
+
+.rains{
+    position: absolute;
+    transform: rotate(30deg);
 }
-.Clear{
-    width:100vw;
-    height: 100vh;
-    background-image: url(./assets/clear.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-   
-}
-.Clouds{
-    width:100%;
-    height: 100vh;
-    background-image: url(./assets/cloud.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+.raindrop {
+    position: absolute;
+    width: 2px; /* Width of a raindrop */
+    height: 16px; /* Height of a raindrop */
+    background-color: #00f; /* Raindrop color */
+    animation:  sway 1s linear infinite, fall 2s linear infinite; /* Animation for falling and swaying */
+    transform: rotate(-40deg);
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-1px) rotate(-40deg);
+      opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(100vh) rotate(-40deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes sway {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateY();
+      }
+      100% {
+        transform: translateX(1px);
+      }
+    }
+    .raindrops {
+        position: absolute;
+        width: 2px; /* Width of a raindrop */
+        height: 16px; /* Height of a raindrop */
+        background-color: #00f; /* Raindrop color */
+        animation:   sway .8s infinite, fall 2s linear infinite; /* Animation for falling and swaying */
+        transform: rotate(-40deg);
+      }
+    
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px) rotate(-40deg);
+          opacity: 0.5;
+        }
+    
+        100% {
+            transform: translateY(100vh) translateX(100vh) rotate(-40deg);
+            opacity: 1;
+          }
+        }
+    
+        @keyframes sway {
+          0% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateY();
+          }
+          100% {
+            transform: translateX(1px);
+          }
+        }
