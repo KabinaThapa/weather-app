@@ -10,13 +10,9 @@ const DailyWeather = () => {
 
   const convertDtTxtToDayAndTime = (dtTxt, pod) => {
     const date = dayjs(dtTxt, 'YYYY-MM-DD HH:mm:ss');
-    let formattedDate;
-  
-    if (pod === 'd') {
-      formattedDate = date.format('h:mm A').replace('PM', 'AM'); // Daytime format
-    } else if (pod === 'n') {
-      formattedDate = date.format('h:mm A').replace('AM', 'PM'); // Nighttime format
-    }
+   
+      const formattedDate = date.format('h:mm A'); // Nighttime format
+    
   
     return formattedDate;
   };
