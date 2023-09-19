@@ -2,16 +2,25 @@ import React from 'react';
 import { useWeatherContext } from '../../Context/Context';
 import dayjs from 'dayjs';
 import { converttoFahrenheit } from '../../utils/temperature';
+import { iconMappings } from '../../../public/WeatherIcon/WeatherIcon';
 
 const DailyWeather = () => {
   const { state: { daily } } = useWeatherContext();
   const dailylist = daily.list;
 
-  const convertDtTxtToDayAndTime = (dtTxt) => {
+  const convertDtTxtToDayAndTime = (dtTxt, pod) => {
     const date = dayjs(dtTxt, 'YYYY-MM-DD HH:mm:ss');
-    const formattedDate = date.format('h:mm A');
+    let formattedDate;
+  
+    if (pod === 'd') {
+      formattedDate = date.format('h:mm A').replace('PM', 'AM'); // Daytime format
+    } else if (pod === 'n') {
+      formattedDate = date.format('h:mm A').replace('AM', 'PM'); // Nighttime format
+    }
+  
     return formattedDate;
   };
+  
 
   let currentDay = null;
   let currentDayData = [];
@@ -40,9 +49,10 @@ const DailyWeather = () => {
     // Add the data to the current day's data array
     currentDayData.push({
       key: list.dt,
-      time: convertDtTxtToDayAndTime(list.dt_txt),
+      time: convertDtTxtToDayAndTime(list.dt_txt, list.sys.pod),
       temperature: converttoFahrenheit(list.main.temp),
       description: list.weather[0].description,
+      icon:list.weather[0].icon
     });
   });
 
@@ -64,6 +74,7 @@ const DailyWeather = () => {
               <h1>{item.time}</h1>
               <h1>{item.temperature}°F</h1>
               {item.description}
+              <img className='w-16 h-16' src={`${iconMappings[item.icon]}`}/>
             </div>
           ))}
         </div>
