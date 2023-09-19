@@ -1,8 +1,5 @@
 
-.rains{
-    position: absolute;
-    transform: rotate(30deg);
-}
+
 .raindrop {
     position: absolute;
     width: 2px; /* Width of a raindrop */
