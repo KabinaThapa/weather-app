@@ -7,6 +7,10 @@ export default {
     
   ],
   theme: {
+    colors:{
+      yinmn:'#374A67',
+      glau:'#607DA9',
+    },
     extend: {},
   },
   plugins: [],

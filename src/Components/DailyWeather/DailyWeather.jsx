@@ -69,8 +69,9 @@ const DailyWeather = () => {
             <div key={item.key}>
               <h1>{item.time}</h1>
               <h1>{item.temperature}°F</h1>
-              {item.description}
+              
               <img className='w-16 h-16' src={`${iconMappings[item.icon]}`}/>
+              {item.description}
             </div>
           ))}
         </div>

@@ -1,5 +1,8 @@
 
-
+*{
+  margin:0;
+  padding:0;
+}
 .raindrop {
     position: absolute;
     width: 2px; /* Width of a raindrop */
@@ -62,5 +65,66 @@
           }
           100% {
             transform: translateX(1px);
+          }
+        }
+        
+        #Group2 {
+          height: 100px;
+          color: red;
+          position: absolute;
+          animation: bounce-float 16s  infinite;
+          animation-fill-mode: forwards;
+        }
+        #Group3{
+          animation: bounce-float 16s infinite;
+        }
+        #Group1{
+          animation: bounce 3s infinite;
+        }
+        @keyframes bounce-float {
+          0% {
+            transform: translateY(3%) translateX(3%);
+          }
+          10% {
+            transform: translateY(0) translateX(10%);
+          }
+          20% {
+            transform: translateY(3%) translateX(13%);
+          }
+          30% {
+            transform: translateY(0) translateX(20%);
+          }
+          40% {
+            transform: translateY(3%) translateX(23%);
+          }
+          50% {
+            transform: translateY(0) translateX(30%);
+          }
+          60% {
+            transform: translateY(3%) translateX(33%);
+          }
+          70% {
+            transform: translateY(0) translateX(40%);
+          }
+          80% {
+            transform: translateY(3%) translateX(43%);
+          }
+          90% {
+            transform: translateY(0) translateX(50%);
+          }
+          100% {
+            transform: translateY(3%) translateX(53%);
+          }
+        }
+        @keyframes bounce{
+          0%{
+            transform: translateY(-1%);
+          }
+        
+          90%{
+            transform: translateY(5%);
+          }
+          100%{
+            transition: translateY(3%);
           }
         }
