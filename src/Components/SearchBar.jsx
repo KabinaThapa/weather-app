@@ -4,6 +4,7 @@ import { useWeatherContext } from '../Context/Context'
 import axios from 'axios'
 //import cities from 'cities.json';
 import { cities } from '../static-data/data'//1000 largest US cities by population with geo co-ordinates
+import {BsSearch } from 'react-icons/bs'
 const SearchBar = () => {
     
    const {state:{city}, dispatch}=useWeatherContext()
@@ -68,9 +69,9 @@ const SearchBar = () => {
 
   return (
     <>
-    <div className='mx-auto w-[40%] flex justify-between'>
-        <input className='outline-none w-96 p-2 border rounded' type="text" placeholder='city name' onChange={handleChange} value={input}></input>
-        <button  className='rounded border w-32 p-1'onClick={handleSubmit}>Search</button>
+    <div className='mx-auto w-[35%] flex justify-evenly'>
+        <input className='outline-none w-96 p-2 border rounded-md text-xl' type="text" placeholder='city name' onChange={handleChange} value={input}></input>
+        <button  className=''onClick={handleSubmit}><BsSearch size={30}/></button>
         </div>
      
 

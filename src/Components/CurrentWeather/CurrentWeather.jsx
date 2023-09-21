@@ -6,6 +6,7 @@ import {converttoFahrenheit} from '../../utils/temperature'
 import Rainy from '../Rainy/Rainy';
 import Cloudy from '../Cloudy/Cloudy';
 import Clear from '../Clear/Clear';
+import Windy from '../Windy/Windy';
 
 // Add the UTC plugin to Day.js
 dayjs.extend(utc);
@@ -38,44 +39,47 @@ const CurrentWeather = () => {
 
   return (
     <div className='w-full h-full flex justify-evenly  '>
-      <div className='w-[50%]  p-4  flex justify-between '>
-<div className='w-[40%]'>
-        <p className='space-y-8'>
-          <p>
-        <h1 className='text-4xl pb-4'>{converttoFahrenheit(current.main.temp)}° F</h1>
+     
+<div className='w-[90%] p-[2%] flex flex-col justify-evenly gap-4 bg-yinmn bg-opacity-30 rounded shadow-lg shadow-gray-500'>
+ 
+  <div className='flex  justify-around font-serif'>
+    <div className='space-y-2 text-lg'>
+    <h1 className='text-6xl pb-2'>{converttoFahrenheit(current.main.temp)}° F</h1>
         <h2 className='text-xl'>{current.weather[0].main}</h2>
-        </p>
-       
-       
-        <p className='space-y-2'>
-        <h2 className='text-2xl'>{current.name}</h2>
-         <h2> {converttoFahrenheit(current.main.temp_max)}° F / {converttoFahrenheit(current.main.temp_min)}° F  </h2>
-          <h2>Feels like {converttoFahrenheit(current.main.feels_like)}° F</h2>
+  <h2 className='text-2xl'>{current.name}</h2>
+  <p>
+         <h2> {converttoFahrenheit(current.main.temp_max)}° F / {converttoFahrenheit(current.main.temp_min)}° F Feels like {converttoFahrenheit(current.main.feels_like)}° F</h2>
+         </p>
+          
           <h2 className='capitalize'>{current.weather[0].description}</h2>
         <h2>{` ${time}`}</h2>
         <h2>{` ${day}, ${date}`}</h2>
-        </p>
-        </p>
         </div>
-        <div className=' p-5 w-[70%] gap-4 grid grid-cols-2'>
+        <div className=' mt-auto space-y-2 text-lg'>
         
-        <div className='bg-yinmn bg-opacity-30 p-2 rounded  flex items-center justify-center '><h1> Humidity: <br></br> {current.main.humidity} %</h1></div>
-        <div className='bg-yinmn bg-opacity-30 p-2 rounded  flex items-center justify-center'><h1> Wind: <br></br>{current.wind.speed} m/s</h1></div>
+       <h1> Humidity: {current.main.humidity} %</h1>
+        <h1> Wind: {current.wind.speed} m/s</h1>
        
         
-        <div className='bg-yinmn bg-opacity-30 p-2 rounded  flex items-center justify-center'><h1> Sunrise:<br></br> {sunrise}</h1></div>
-        <div className='bg-yinmn bg-opacity-30 p-2 rounded  flex items-center justify-center'><h1> Sunset: <br></br>{sunset}</h1></div>
+       <h1> Sunrise: {sunrise}</h1>
+       <h1> Sunset: {sunset}</h1>
        
      
       </div>
+  
+  </div>
+       
+       
+        
+       
       </div>
       
-      <div className='w-[90%] h-auto'>
+      <div className='w-[90%] h-auto overflow-hidden  '>
       {weatherCondition=='Clear' && <Clear/>}
       {weatherCondition=='Clouds' && <Cloudy/>}
       {weatherCondition=='Squall' && <Rainy/>}
-      {weatherCondition=='rain' && <Rainy/>}
-      {weatherCondition=='sunny' && <Rainy/>}
+      {weatherCondition=='Rain' && <Rainy/>}
+      {weatherCondition=='Windy' && <Windy/>}
       </div>
     </div>
   );

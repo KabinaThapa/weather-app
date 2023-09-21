@@ -164,6 +164,37 @@
           }
         }
        
+#leaf{
+  animation: wind 2s ease-in-out infinite;
+}
 
 
 
+
+@keyframes wind{
+ 
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  50% {
+    transform: rotate(90deg) translateY(10px);
+  }
+  100% {
+    transform: rotate(90deg) translateY(160px);
+  }
+
+}
+.breeze{
+  animation: move 2s infinite;
+}
+.breeze1{
+  animation: move 4s infinite;
+}
+@keyframes move{
+0%{
+  transform: rotate(-30deg) translateX(0);
+}
+100%{
+  transform: rotate(-30deg) translateX(-40rem);
+}
+}

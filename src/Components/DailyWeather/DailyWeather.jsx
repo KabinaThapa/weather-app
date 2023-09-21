@@ -61,10 +61,10 @@ const DailyWeather = () => {
   }
 
   return (
-    <div className='bg-yinmn bg-opacity-30 flex flex-col gap-10 justify-between text-black w-full p-4 rounded'>
+    <div className='bg-yinmn bg-opacity-30 flex flex-col gap-10 justify-between text-black w-full p-4 rounded shadow-lg shadow-gray-500'>
       {groupedDaysData.map((dayData) => (
-        <div className='grid grid-cols-9 gap-4 border-b pb-4' key={dayData.day}>
-          <h2 className='font-semibold'>{dayData.day}</h2>
+        <div className='grid grid-cols-9 gap-4 border-b pb-4 capitalize text-lg' key={dayData.day}>
+          <h2 className='text-2xl'>{dayData.day}</h2>
           {dayData.data.map((item) => (
             <div key={item.key}>
               <h1>{item.time}</h1>
