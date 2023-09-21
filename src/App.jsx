@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div className="p-[2%] space-y-10 bg-slate-50 bg-gradient-to-l from-lavender  to-white font-serif">
+      <div className="p-[2%] space-y-8 bg-slate-50 bg-gradient-to-l from-lavender  to-white font-serif">
         <p>
         <h1 className="text-4xl text-center">Welcome!</h1>
         <h2 className="text-center text-xl">Stay updated with our weather forecast.</h2>
