@@ -5,6 +5,7 @@ import utc from 'dayjs/plugin/utc'; // Import UTC plugin for Day.js
 import {converttoFahrenheit} from '../../utils/temperature'
 import Rainy from '../Rainy/Rainy';
 import Cloudy from '../Cloudy/Cloudy';
+import Clear from '../Clear/Clear';
 
 // Add the UTC plugin to Day.js
 dayjs.extend(utc);
@@ -70,7 +71,7 @@ const CurrentWeather = () => {
       </div>
       
       <div className='w-[90%] h-auto'>
-      {weatherCondition=='Clear' && <Cloudy/>}
+      {weatherCondition=='Clear' && <Clear/>}
       {weatherCondition=='Clouds' && <Cloudy/>}
       {weatherCondition=='Squall' && <Rainy/>}
       {weatherCondition=='rain' && <Rainy/>}
