@@ -8,7 +8,7 @@ const DailyWeather = () => {
   const { state: { daily } } = useWeatherContext();
   const dailylist = daily.list;
 
-  const convertDtTxtToDayAndTime = (dtTxt, pod) => {
+  const convertDtTxtToDayAndTime = (dtTxt) => {
     const date = dayjs(dtTxt, 'YYYY-MM-DD HH:mm:ss');
    
       const formattedDate = date.format('h:mm A'); // Nighttime format
@@ -45,7 +45,7 @@ const DailyWeather = () => {
     // Add the data to the current day's data array
     currentDayData.push({
       key: list.dt,
-      time: convertDtTxtToDayAndTime(list.dt_txt, list.sys.pod),
+      time: convertDtTxtToDayAndTime(list.dt_txt),
       temperature: converttoFahrenheit(list.main.temp),
       description: list.weather[0].description,
       icon:list.weather[0].icon
@@ -61,10 +61,10 @@ const DailyWeather = () => {
   }
 
   return (
-    <div className='border-2 flex flex-col gap-6 justify-between text-black w-[100%]'>
+    <div className='bg-yinmn bg-opacity-30 flex flex-col gap-10 justify-between text-black w-full p-4 rounded'>
       {groupedDaysData.map((dayData) => (
-        <div className='grid grid-cols-9' key={dayData.day}>
-          <h2>{dayData.day}</h2>
+        <div className='grid grid-cols-9 gap-4 border-b pb-4' key={dayData.day}>
+          <h2 className='font-semibold'>{dayData.day}</h2>
           {dayData.data.map((item) => (
             <div key={item.key}>
               <h1>{item.time}</h1>

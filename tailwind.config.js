@@ -7,11 +7,14 @@ export default {
     
   ],
   theme: {
-    colors:{
-      yinmn:'#374A67',
-      glau:'#607DA9',
+    
+    extend: {
+      colors:{
+        yinmn:'#374A67',
+        glau:'#607DA9',
+        lavender:'#B4BFE4'
+      },
     },
-    extend: {},
   },
   plugins: [],
 }

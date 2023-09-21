@@ -7,11 +7,13 @@ import { cities } from '../static-data/data'//1000 largest US cities by populati
 const SearchBar = () => {
     
    const {state:{city}, dispatch}=useWeatherContext()
-   const[input, setInput]=useState('')
+   const[input, setInput]=useState('New York')
    console.log('useWeatherContext', useWeatherContext())
     
    
-
+   useEffect(() => {
+    fetchData([{ latitude: '40.7128', longitude: '-74.0060' }]); // Coordinates for 'New York'
+  }, []);
     const handleChange=(event)=>{
     const inputvalue=event.target.value
       setInput(inputvalue)
@@ -66,10 +68,10 @@ const SearchBar = () => {
 
   return (
     <>
-    
-        <input type="text" placeholder='city name' onChange={handleChange} value={input}></input>
-        <button onClick={handleSubmit}>submit</button>
-       
+    <div className='mx-auto w-[40%] flex justify-between'>
+        <input className='outline-none w-96 p-2 border rounded' type="text" placeholder='city name' onChange={handleChange} value={input}></input>
+        <button  className='rounded border w-32 p-1'onClick={handleSubmit}>Search</button>
+        </div>
      
 
     

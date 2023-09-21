@@ -15,16 +15,18 @@ function App() {
 
   return (
     <>
-      <div className="p-[2%] bg-glau">
+      <div className="p-[2%] space-y-8 bg-slate-50 bg-gradient-to-l from-lavender  to-white">
+        <h1 className="text-2xl">Welcome!</h1>
 
 <SearchBar/>
-<div className="flex gap-8  mt-8"> 
+<h1 className="text-2xl">Today</h1>
   <CurrentWeather/>
   
 
 
     
-    </div>
+    
+    <h1 className=" text-2xl">3-Hours Forecast</h1>
     <DailyWeather/>
     </div>
     </>

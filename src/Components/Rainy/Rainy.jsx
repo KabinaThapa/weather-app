@@ -3,8 +3,8 @@ import rainy from '../../../public/rainy.svg'
 
 const Rainy = () => {
   return (
-    <div>
-        <div className="border mb-8  w-96 h-96 relative overflow-hidden ">
+    
+        <div className="border mb-8 w-full h-96 relative overflow-hidden ">
     <div className="raindrops left-8 top-3 m-2"></div>
     <div className="raindrop left- top-16  m-8"></div>
     <div className="raindrops left-6 top-8 m-2"></div>
@@ -22,10 +22,10 @@ const Rainy = () => {
     <div className="raindrops left-6 top-28  m-2"></div>
     <div className="raindrop left-25 top-20  m-2"></div>
    
-    <img src={rainy} className="border object-cover w-full h-full"/>
+    <img src={rainy} className="border object-contain w-full h-full"/>
     </div>
 
-    </div>
+  
   )
 }
 
