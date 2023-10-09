@@ -70,7 +70,7 @@ const SearchBar = () => {
   return (
     <>
     <div className='mx-auto w-[35%] flex justify-evenly'>
-        <input className='outline-none w-96 p-2 border rounded-md text-xl' type="text" placeholder='city name' onChange={handleChange} value={input}></input>
+        <input className='outline-none w-96 p-2 border rounded-md text-xl' type="text" placeholder='City Name' onChange={handleChange} value={input}></input>
         <button  className=''onClick={handleSubmit}><BsSearch size={30}/></button>
         </div>
      
