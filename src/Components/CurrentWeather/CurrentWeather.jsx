@@ -50,16 +50,16 @@ const CurrentWeather = () => {
     <h1 className='md:text-6xl text-4xl pb-2'>{converttoFahrenheit(current.main.temp)}° F</h1>
         <h2 className='md:text-xl text-base'>{current.weather[0].main}</h2>
   <h2 className='md:text-2xl text-lg'>{current.name}</h2>
-  <p className='md:text-lg text-sm'>
+  <p className='md:text-lg text-base'>
          <h2> {converttoFahrenheit(current.main.temp_max)}° F / {converttoFahrenheit(current.main.temp_min)}° F Feels like {converttoFahrenheit(current.main.feels_like)}° F</h2>
          </p>
           
-          <h2 className='capitalize md:text-lg text-sm'>{current.weather[0].description}</h2>
-        <h2 className='md:text-lg text-sm'>{` ${time}`}</h2>
-        <h2 className='md:text-lg text-sm'>{` ${day}, ${date}`}</h2>
+          <h2 className='capitalize md:text-lg text-base'>{current.weather[0].description}</h2>
+        <h2 className='md:text-lg text-base'>{` ${time}`}</h2>
+        <h2 className='md:text-lg text-base'>{` ${day}, ${date}`}</h2>
         </div>
 
-        <div className='md:mt-[10rem]  md:text-right pr-4 md:row-span-1 row-auto md:space-y-2 md:text-lg text-sm'>
+        <div className='md:mt-[10rem]  md:text-right pr-4 md:row-span-1 row-auto md:space-y-2 md:text-lg text-base'>
         
        <h1> Humidity: {current.main.humidity} %</h1>
         <h1> Wind: {current.wind.speed} m/s</h1>

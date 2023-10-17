@@ -69,9 +69,9 @@ const SearchBar = () => {
 
   return (
     <>
-    <div className='mx-auto  w-full md:w-[35%]  flex justify-evenly'>
-        <input className='outline-none w-72 md:w-96 p-2 shadow-xl shadow-gray-500 rounded-md md:text-xl text-lg' type="text" placeholder='City Name' onChange={handleChange} value={input}></input>
-        <button  className='md:text-4xl text-2xl'onClick={handleSubmit}><BsSearch/></button>
+    <div className='mx-auto  border-black  md:w-[45%] w-[90%] bg-white  flex justify-evenly shadow-xl shadow-gray-500 rounded-md md:text-xl text-lg'>
+        <input className='outline-none  w-[85%] p-2 ' type="text" placeholder='City Name' onChange={handleChange} value={input}></input>
+        <button  className='md:text-3xl text-2xl 'onClick={handleSubmit}><BsSearch/></button>
         </div>
      
 
