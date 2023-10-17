@@ -38,24 +38,28 @@ const CurrentWeather = () => {
   
 
   return (
-    <div className='w-full h-full flex justify-evenly  '>
+    <>
+<h1 className="md:text-4xl text-xl md:block hidden font-serif">Today</h1>
+    <div className='w-full h-full grid grid-cols-2 md:place-items-stretch place-items-center '>
      
-<div className='w-[90%] p-[2%] flex flex-col justify-evenly gap-4 bg-yinmn bg-opacity-30 rounded shadow-lg shadow-gray-500'>
+<div className='md:w-[90%] w-[95%] p-[2%]  grid md:grid-cols-2 grid-cols-1 gap-4 md:bg-yinmn md:bg-opacity-30 rounded md:shadow-lg shadow-gray-500'>
  
-  <div className='flex  justify-around font-serif'>
-    <div className='space-y-2 text-lg'>
-    <h1 className='text-6xl pb-2'>{converttoFahrenheit(current.main.temp)}° F</h1>
-        <h2 className='text-xl'>{current.weather[0].main}</h2>
-  <h2 className='text-2xl'>{current.name}</h2>
-  <p>
+<h1 className="md:text-4xl md:hidden text-xl font-serif font-semibold">Today</h1>
+    <div className='md:space-y-2  md:row-span-2 '>
+    
+    <h1 className='md:text-6xl text-4xl pb-2'>{converttoFahrenheit(current.main.temp)}° F</h1>
+        <h2 className='md:text-xl text-base'>{current.weather[0].main}</h2>
+  <h2 className='md:text-2xl text-lg'>{current.name}</h2>
+  <p className='md:text-lg text-sm'>
          <h2> {converttoFahrenheit(current.main.temp_max)}° F / {converttoFahrenheit(current.main.temp_min)}° F Feels like {converttoFahrenheit(current.main.feels_like)}° F</h2>
          </p>
           
-          <h2 className='capitalize'>{current.weather[0].description}</h2>
-        <h2>{` ${time}`}</h2>
-        <h2>{` ${day}, ${date}`}</h2>
+          <h2 className='capitalize md:text-lg text-sm'>{current.weather[0].description}</h2>
+        <h2 className='md:text-lg text-sm'>{` ${time}`}</h2>
+        <h2 className='md:text-lg text-sm'>{` ${day}, ${date}`}</h2>
         </div>
-        <div className=' mt-auto space-y-2 text-lg'>
+
+        <div className='md:mt-[10rem]  md:text-right pr-4 md:row-span-1 row-auto md:space-y-2 md:text-lg text-sm'>
         
        <h1> Humidity: {current.main.humidity} %</h1>
         <h1> Wind: {current.wind.speed} m/s</h1>
@@ -67,7 +71,7 @@ const CurrentWeather = () => {
      
       </div>
   
-  </div>
+  
        
        
         
@@ -82,6 +86,7 @@ const CurrentWeather = () => {
       {weatherCondition=='Windy' && <Windy/>}
       </div>
     </div>
+    </>
   );
 };
 
