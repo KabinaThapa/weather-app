@@ -80,7 +80,7 @@ const CurrentWeather = () => {
       
       <div className='md:w-[90%]  overflow-hidden md:col-auto col-span-2'>
       {weatherCondition=='Clear' && <Clear/>}
-      {weatherCondition=='Clouds' && <Clear/>}
+      {weatherCondition=='Clouds' && <Cloudy/>}
       {weatherCondition=='Squall' && <Rainy/>}
       {weatherCondition=='Rain' && <Rainy/>}
       {weatherCondition=='Windy' && <Windy/>}
