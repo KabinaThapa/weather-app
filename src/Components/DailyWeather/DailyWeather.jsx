@@ -61,10 +61,13 @@ const DailyWeather = () => {
   }
 
   return (
-    <div className='bg-yinmn bg-opacity-30 flex flex-col gap-10 justify-between text-black w-full p-4 rounded shadow-lg shadow-gray-500'>
+    <div className='bg-yinmn bg-opacity-30 flex flex-col md:gap-10 gap-4 justify-between text-black w-full p-4 rounded shadow-lg shadow-gray-500'>
       {groupedDaysData.map((dayData) => (
-        <div className='grid grid-cols-9 gap-4 border-b pb-4 capitalize text-lg' key={dayData.day}>
-          <h2 className='text-2xl'>{dayData.day}</h2>
+        <>
+
+        <h2 className='md:text-2xl text-lg font-semibold underline underline-offset-2 md:no-underline text-center '>{dayData.day}</h2>
+        <div className='grid md:grid-cols-9 grid-cols-3 gap-4 border-b pb-4 capitalize md:text-lg' key={dayData.day}>
+          <h2 className='text-2xl md:block hidden'>{dayData.day}</h2>
           {dayData.data.map((item) => (
             <div key={item.key}>
               <h1>{item.time}</h1>
@@ -73,8 +76,10 @@ const DailyWeather = () => {
               <img className='w-16 h-16' src={`${iconMappings[item.icon]}`}/>
               {item.description}
             </div>
+          
           ))}
         </div>
+        </>
       ))}
     </div>
   );

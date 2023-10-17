@@ -28,7 +28,7 @@ function App() {
 
     
     
-    <h1 className=" text-4xl pt-10">3-Hours Forecast</h1>
+    <h1 className=" md:text-4xl text-xl font-semibold pt-10">3-Hours Forecast</h1>
     <DailyWeather/>
     </div>
     </>
