@@ -40,18 +40,18 @@ const CurrentWeather = () => {
   return (
     <>
 <h1 className="md:text-4xl text-xl md:block hidden font-serif">Today</h1>
-    <div className='w-full h-full grid grid-cols-2 md:place-items-stretch place-items-center '>
+    <div className='w-full  grid md:grid-cols-2 grid-cols-3 md:place-items-stretch place-items-center  '>
      
-<div className='md:w-[90%] w-[95%] p-[2%]  grid md:grid-cols-2 grid-cols-1 gap-4 md:bg-yinmn md:bg-opacity-30 rounded md:shadow-lg md:shadow-gray-500'>
+<div className='md:w-[90%]  w-[95%] p-[2%] z-10  grid md:grid-cols-2 md:place-items-center grid-cols-1 gap-4 md:bg-yinmn md:bg-opacity-30 rounded md:shadow-lg md:shadow-gray-500'>
  
 <h1 className="md:text-4xl md:hidden text-xl font-serif font-semibold">Today</h1>
-    <div className='md:space-y-2  md:row-span-2 '>
+    <div className='md:space-y-4  md:row-span-2 '>
     
-    <h1 className='md:text-6xl text-4xl pb-2'>{converttoFahrenheit(current.main.temp)}° F</h1>
-        <h2 className='md:text-xl text-base'>{current.weather[0].main}</h2>
-  <h2 className='md:text-2xl text-lg'>{current.name}</h2>
+    <h1 className='md:text-6xl text-4xl pb-2'>{converttoFahrenheit(current.main.temp)}°F</h1>
+        <h2 className='md:text-xl text-base '>{current.weather[0].main}</h2>
+  <h2 className='md:text-2xl text-lg font-semibold'>{current.name}</h2>
   <p className='md:text-lg text-base'>
-         <h2> {converttoFahrenheit(current.main.temp_max)}° F / {converttoFahrenheit(current.main.temp_min)}° F Feels like {converttoFahrenheit(current.main.feels_like)}° F</h2>
+         <h2> {converttoFahrenheit(current.main.temp_max)}°F / {converttoFahrenheit(current.main.temp_min)}°F Feels like {converttoFahrenheit(current.main.feels_like)}°F</h2>
          </p>
           
           <h2 className='capitalize md:text-lg text-base'>{current.weather[0].description}</h2>
@@ -59,10 +59,10 @@ const CurrentWeather = () => {
         <h2 className='md:text-lg text-base'>{` ${day}, ${date}`}</h2>
         </div>
 
-        <div className='md:mt-[10rem]  md:text-right pr-4 md:row-span-1 row-auto md:space-y-2 md:text-lg text-base'>
+        <div className='md:mt-[15rem]   md:text-right md:pr-4 md:row-span-1 row-auto md:space-y-2 md:text-lg text-sm'>
         
-       <h1> Humidity: {current.main.humidity} %</h1>
-        <h1> Wind: {current.wind.speed} m/s</h1>
+       <h1> Humidity: {current.main.humidity}%</h1>
+        <h1> Wind: {current.wind.speed}m/s</h1>
        
         
        <h1> Sunrise: {sunrise}</h1>
@@ -78,12 +78,13 @@ const CurrentWeather = () => {
        
       </div>
       
-      <div className='w-[90%] h-auto overflow-hidden  '>
+      <div className='md:w-[90%]  overflow-hidden md:col-auto col-span-2'>
       {weatherCondition=='Clear' && <Clear/>}
-      {weatherCondition=='Clouds' && <Cloudy/>}
+      {weatherCondition=='Clouds' && <Clear/>}
       {weatherCondition=='Squall' && <Rainy/>}
       {weatherCondition=='Rain' && <Rainy/>}
       {weatherCondition=='Windy' && <Windy/>}
+      {weatherCondition==''&&<Clear/>}
       </div>
     </div>
     </>

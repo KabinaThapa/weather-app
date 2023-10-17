@@ -22,7 +22,7 @@ const Rainy = () => {
     <div className="raindrops left-6 top-28  m-2"></div>
     <div className="raindrop left-25 top-20  m-2"></div>
    
-    <img src={rainy} className=" object-contain w-full h-full"/>
+    <img src={rainy} className=" object-contain w-full h-96"/>
     </div>
 
   

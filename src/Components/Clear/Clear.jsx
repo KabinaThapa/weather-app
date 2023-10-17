@@ -2,8 +2,8 @@ import React from 'react'
 
 const Clear = () => {
   return (
-    <div className='w-full h-96 relative'>
-        <svg className='w-full h-full object-cover' xmlns="http://www.w3.org/2000/svg" width="661" height="534" viewBox="0 0 661 534" fill="none">
+    <div className=' relative overflow-hidden '>
+        <svg className='clearsvg w-full h-full object-cover' xmlns="http://www.w3.org/2000/svg" width="661" height="534" viewBox="0 0 661 534" fill="none">
 <g id="undraw_walking_outside_re_56xo 1" clip-path="url(#clip0_0_1)">
     <g id='walker'>
 <g id="backleg">
