@@ -65,9 +65,9 @@ const DailyWeather = () => {
       {groupedDaysData.map((dayData) => (
         <>
 
-        <h2 className='md:text-2xl text-lg font-semibold underline underline-offset-2 md:no-underline text-center '>{dayData.day}</h2>
-        <div className='grid md:grid-cols-9 grid-cols-3 gap-4 border-b pb-4 capitalize md:text-lg' key={dayData.day}>
-          <h2 className='text-2xl md:block hidden'>{dayData.day}</h2>
+        <h2 className='md:text-2xl text-lg md:hidden  font-semibold underline underline-offset-2 md:no-underline text-center '>{dayData.day}</h2>
+        <div className='grid md:grid-cols-9 grid-cols-3 gap-8 border-b pb-4 capitalize md:text-lg' key={dayData.day}>
+          <h2 className='text-2xl md:block hidden font-medium'>{dayData.day}</h2>
           {dayData.data.map((item) => (
             <div key={item.key}>
               <h1>{item.time}</h1>

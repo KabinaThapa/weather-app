@@ -42,7 +42,7 @@ const CurrentWeather = () => {
 <h1 className="md:text-4xl text-xl md:block hidden font-serif">Today</h1>
     <div className='w-full h-full grid grid-cols-2 md:place-items-stretch place-items-center '>
      
-<div className='md:w-[90%] w-[95%] p-[2%]  grid md:grid-cols-2 grid-cols-1 gap-4 md:bg-yinmn md:bg-opacity-30 rounded md:shadow-lg shadow-gray-500'>
+<div className='md:w-[90%] w-[95%] p-[2%]  grid md:grid-cols-2 grid-cols-1 gap-4 md:bg-yinmn md:bg-opacity-30 rounded md:shadow-lg md:shadow-gray-500'>
  
 <h1 className="md:text-4xl md:hidden text-xl font-serif font-semibold">Today</h1>
     <div className='md:space-y-2  md:row-span-2 '>
