@@ -84,7 +84,7 @@ const CurrentWeather = () => {
       {weatherCondition=='Squall' && <Rainy/>}
       {weatherCondition=='Rain' && <Rainy/>}
       {weatherCondition=='Windy' && <Windy/>}
-      {weatherCondition==''&&<Clear/>}
+      {!['Clear', 'Clouds', 'Rain', 'Windy'].includes(weatherCondition) && <Cloudy />}
       </div>
     </div>
     </>
